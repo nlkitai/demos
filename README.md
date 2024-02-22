@@ -1,4 +1,4 @@
-#  ` nlux` demos
+#  `nlux` demos
 
 This repository contains a collection of demos for the `nlux` library. 
 The demos are organized in the following way:
