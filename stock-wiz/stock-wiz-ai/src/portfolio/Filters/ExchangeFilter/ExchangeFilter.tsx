@@ -1,7 +1,7 @@
-import {useAiContext} from '@nlux/react';
-import {useCallback, useEffect} from 'react';
+import {useAiContext, useAiTask} from '@nlux/react';
+import {useCallback} from 'react';
 import {Exchange} from '../../../@types/Data.ts';
-import {StockWizAiContext} from '../../../context.tsx';
+import {MyAiContext} from '../../../context.tsx';
 
 export type ExchangeFilterProps = {
     selectedExchanges: string[];
@@ -16,16 +16,11 @@ export const ExchangeFilter = (props: ExchangeFilterProps) => {
         setExchangesFilter,
     } = props;
 
-    const handleExchangeChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, checked} = event.target;
-        const exchanges = checked
-            ? [...selectedExchanges, name]
-            : selectedExchanges.filter((exchange) => exchange !== name);
-
-        setExchangesFilter(exchanges);
-    }, [setExchangesFilter, selectedExchanges]);
-
     const toggleExchanges = useCallback((...exchangesToggles: boolean[]) => {
+        if (!availableExchanges) {
+            return;
+        }
+
         if (availableExchanges.length !== exchangesToggles.length) {
             return;
         }
@@ -34,20 +29,31 @@ export const ExchangeFilter = (props: ExchangeFilterProps) => {
         setExchangesFilter(exchanges.map(({id}) => id));
     }, [availableExchanges, setExchangesFilter]);
 
-    const compAiContext = useAiContext(StockWizAiContext, 'exchange-filter-view');
-    useEffect(() => {
-        const {cancel} = compAiContext.registerTask(
-            'applyFilterForStockExchange',
-            toggleExchanges,
-            availableExchanges.map(
-                (exchange) => `a boolean, set to true to include exchange `
-                    + `[ ${exchange.label} (${exchange.id}) ] in the appliedFilters, `
-                    + `setFilter to false to exclude it`,
-            ),
-        );
+    useAiContext(
+        MyAiContext,
+        'Applied Filter View',
+        selectedExchanges,
+    );
 
-        return cancel;
-    }, [compAiContext, toggleExchanges, availableExchanges]);
+    useAiTask(
+        MyAiContext,
+        'Filter the stocks displayed in the page by exchange',
+        toggleExchanges,
+        availableExchanges.map(
+            (exchange) => `A boolean. Set it to true to include exchange `
+                + `"${exchange.label}" (${exchange.id}) ] in the filters applied. Set it to `
+                + `false to exclude "${exchange.label}" (${exchange.id}).`,
+        ),
+    );
+
+    const handleExchangeChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, checked} = event.target;
+        const exchanges = checked
+            ? [...selectedExchanges, name]
+            : selectedExchanges.filter((exchange) => exchange !== name);
+
+        setExchangesFilter(exchanges);
+    }, [setExchangesFilter, selectedExchanges]);
 
     return (
         <div className="criterion exchange">

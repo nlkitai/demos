@@ -11,9 +11,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@nlux/nlbridge-react": "^0.12.1",
-    "@nlux/react": "^0.12.1",
-    "@nlux/themes": "^0.12.1",
+    "@nlux/nlbridge-react": "^1.0.3",
+    "@nlux/react": "^1.0.3",
+    "@nlux/themes": "^1.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

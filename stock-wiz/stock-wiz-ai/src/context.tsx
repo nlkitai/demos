@@ -4,4 +4,4 @@ import {createAiContext} from '@nlux/react';
 const contextAdapter = createContextAdapter()
     .withUrl('http://localhost:8899');
 
-export const StockWizAiContext = createAiContext(contextAdapter);
+export const MyAiContext = createAiContext(contextAdapter);
