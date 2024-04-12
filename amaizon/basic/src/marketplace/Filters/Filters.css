@@ -58,14 +58,16 @@
 
 .filters > .criterion.giftability > .options,
 .filters > .criterion.impulseScore > .options {
-    display: flex;
-    flex-flow: column nowrap;
+    display: block;
+
     min-width: 100px;
     margin: 0;
     padding: 0;
     list-style: none;
 
     li {
+        display: inline-block;
+        width: 45%;
         margin: 0;
         padding: 0;
         list-style: none;

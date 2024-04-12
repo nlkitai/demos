@@ -411,6 +411,37 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@nlux/core@1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@nlux/core/-/core-1.0.8.tgz#39eb44dec01691f662cd66857aa49f738907d39f"
+  integrity sha512-6lAbyNdub2YInGo5YPXiqwLckqwgL6mnLDokUkAarXrfvggxjemVaUWATv1kYLuxXO28ChgvesnSaRTp1pLDPw==
+
+"@nlux/nlbridge-react@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@nlux/nlbridge-react/-/nlbridge-react-1.0.8.tgz#4cbe2f190723083ebc3f2493ecf0096ecb8b329e"
+  integrity sha512-mLirTDDL+MNYRydRTwnNHdQjNXIkcFTDIdC/l1bu5eR7sH7RxxKldmUfyZFVLcFfAoE7UYFvyj7HksAt+Fd5OA==
+  dependencies:
+    "@nlux/nlbridge" "1.0.8"
+
+"@nlux/nlbridge@1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@nlux/nlbridge/-/nlbridge-1.0.8.tgz#c167c28cbcc76ddfd7ac3ad3546c61c00623467d"
+  integrity sha512-3eSek9WYxZx8wfeoV7PzGC19c7/PIuQX3EPYESAzeTtogJ3Hy/D/umxajB2xJ3aHzWuddaUFwT0YX0tG838O+A==
+  dependencies:
+    "@nlux/core" "1.0.8"
+
+"@nlux/react@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@nlux/react/-/react-1.0.8.tgz#4a59028bf612d052afa8d6e2363b91d410af093b"
+  integrity sha512-VZAlzkJl4NruWRc5qpjTGRnfYOysdvwiuylUFbD1Au2CIQEbabjQwsYFsqz6wmGJ2YV8G7jCjDbAeVLFS+PkWQ==
+  dependencies:
+    "@nlux/core" "1.0.8"
+
+"@nlux/themes@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@nlux/themes/-/themes-1.0.8.tgz#a3d9f0dfd37d41fb49b09c0cbc90e6eae846cc2a"
+  integrity sha512-5G8t3loQ5H7Sn+D+laZOye64tj7hRhH0cXz1Ovu4w6NOjvT+Ne1h5WWlUccWK2eCGkgcZF0fRd/A9CtD2EB8RQ==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
