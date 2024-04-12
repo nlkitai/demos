@@ -1,0 +1,6 @@
+.marketplace {
+    display: flex;
+    flex-direction: column;
+    flex: 100;
+    gap: 10px;
+}

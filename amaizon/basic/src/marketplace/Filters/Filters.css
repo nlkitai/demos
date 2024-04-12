@@ -1,0 +1,99 @@
+.filters-container {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    min-width: 600px;
+    max-width: 100%;
+    min-height: 150px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+
+    h4 {
+        background: #a69f77;
+        color: #ffffff;
+        display: flex;
+        align-items: flex-start;
+        padding: 0.3rem 0.3rem 0.3rem 0.8rem;
+        margin: 0;
+    }
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    flex-flow: row nowrap;
+    width: 100%;
+}
+
+.filters > .criterion {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 20px 10px;
+    border-left: 1px solid #e0e0e0;
+}
+
+.filters > .criterion:first-child {
+    border-left: none;
+}
+
+.filters > .criterion > .title {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.filters > .criterion.giftability {
+    flex-grow: 3;
+}
+
+.filters > .criterion.impulseScore {
+    flex-grow: 2;
+}
+
+.filters > .criterion.giftability > .options,
+.filters > .criterion.impulseScore > .options {
+    display: flex;
+    flex-flow: column nowrap;
+    min-width: 100px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: left;
+    }
+}
+
+.filters > .criterion.sector {
+    flex-grow: 2;
+
+    > div {
+        width: 100%;
+
+        > select {
+            width: 100%;
+            min-width: 100px;
+        }
+    }
+}
+
+.filters > .criterion.w-change,
+.filters > .criterion.m-change,
+.filters > .criterion.y-change {
+    flex-grow: 1;
+
+    input {
+        width: 50px;
+        padding: 5px;
+        text-align: center;
+    }
+}
