@@ -1,11 +1,11 @@
-# Stock Wiz `nlux` demo
+# Stock Wiz `NLUX` demo
 
-This is a simple React JS project that uses `nlux` as AI assistant to make stock related decisions.
+This is a simple React JS project that uses `NLUX` as AI assistant to make stock related decisions.
 
 Two versions are provided:
 
-* `stock-wiz-basic`: A simple UI that does not use `nlux` or AI.
-* `stock-wiz-ai`: A version that uses `nlux` and `nlbridge` to add an AI assistant.
+* `stock-wiz-basic`: A simple UI that does not use `NLUX` or AI.
+* `stock-wiz-ai`: A version that uses `NLUX` and `nlbridge` to add an AI assistant.
 
 ## Running `stock-wiz-ai`
 
