@@ -1,40 +1,12 @@
-'use client';
-import {fetchText} from '@/app/adapter/route';
-import {AiChat, ChatAdapter, ChatAdapterExtras} from '@nlux/react';
 import '@nlux/themes/nova.css';
-import Image from "next/image";
-import {useMemo} from 'react';
+import {ChatComponent} from '@/app/chat';
+import Image from 'next/image';
 
 export default function Home() {
-    const adapter: ChatAdapter = useMemo(() => ({
-        batchText: async (
-            message: string,
-            extras: ChatAdapterExtras<string>,
-        ) => {
-            return fetchText(message);
-        }
-    }), []);
-
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <PageHeader />
-            <div className="aiChat-container">
-                <AiChat
-                    adapter={adapter}
-                    personaOptions={{
-                        assistant: {
-                            name: 'HarryBotter',
-                            avatar: 'https://docs.nlkit.com/nlux/images/personas/harry-botter.png',
-                            tagline: 'Mischievously Making Magic With Mirthful AI!'
-                        },
-                        user: {
-                            name: 'Alex',
-                            avatar: 'https://docs.nlkit.com/nlux/images/personas/alex.png'
-                        }
-                    }}
-                    displayOptions={{ width: 600, height: 400 }}
-                />
-            </div>
+            <ChatComponent />
             <PageFooter />
         </main>
     );
