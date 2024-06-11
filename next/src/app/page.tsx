@@ -29,9 +29,19 @@ export default function HomePage() {
                         },
                     }}
                     displayOptions={{
+                        transparentBackground: true,
                         width: 600,
                         height: 400,
-                        transparentBackground: true,
+                    }}
+                    conversationOptions={{
+                        conversationStarters: [
+                            {
+                                prompt: 'Where can I find the documentation?',
+                            },
+                            {
+                                prompt: 'How can I place an order?',
+                            },
+                        ]
                     }}
                 />
             </div>
