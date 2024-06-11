@@ -1,5 +1,5 @@
 'use client';
-import {fetchText} from '@/app/adapter/route';
+import {fetchText} from '@/app/aiReply/route';
 import {AiChat, ChatAdapter, ChatAdapterExtras} from '@nlux/react';
 import {useMemo} from 'react';
 

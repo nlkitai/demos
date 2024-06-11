@@ -1,4 +1,4 @@
-export async function fetchText(prompt: string): Promise<string> {
+export async function aiReply(prompt: string): Promise<string> {
     const response = await fetch('https://demo.api.nlux.ai/openai/chat/fetch', {
         method: 'POST',
         headers: {
