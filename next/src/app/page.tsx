@@ -21,27 +21,25 @@ export default function HomePage() {
                         assistant: {
                             name: 'HarryBotter',
                             avatar: 'https://docs.nlkit.com/nlux/images/personas/harry-botter.png',
-                            tagline: 'Mischievously Making Magic With Mirthful AI!',
+                            tagline: 'Making Magic With Mirthful AI',
                         },
                         user: {
                             name: 'Alex',
                             avatar: 'https://docs.nlkit.com/nlux/images/personas/alex.png',
                         },
                     }}
+                    conversationOptions={{
+                        conversationStarters: [
+                            // Funny prompts as if you're talking to HarryBotter
+                            {prompt: 'What is the spell to make my code work?'},
+                            {prompt: 'Can you show me a magic trick?'},
+                            {prompt: 'Where can I find the book of wizardry?'},
+                        ],
+                    }}
                     displayOptions={{
                         transparentBackground: true,
                         width: 600,
                         height: 400,
-                    }}
-                    conversationOptions={{
-                        conversationStarters: [
-                            {
-                                prompt: 'Where can I find the documentation?',
-                            },
-                            {
-                                prompt: 'How can I place an order?',
-                            },
-                        ]
                     }}
                 />
             </div>

@@ -166,22 +166,22 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-14.2.3.tgz#2be4e39ee25bfbd85be78eea17c0e7751dc4323c"
   integrity sha512-Q1/zm43RWynxrO7lW4ehciQVj+5ePBhOK+/K2P7pLFX3JaJ/IZVC69SHidrmZSOkqz7ECIOhhy7XhAFG4JYyHA==
 
-"@nlux/core@2.5.5":
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/@nlux/core/-/core-2.5.5.tgz#774be390399d9d1db911eb3c93e0245ee539f47d"
-  integrity sha512-p0I4idykvIptDB7cHCr5FYIxm6LLW05f7DmgvWE1o0BqllpnwlJAfPGU7t0FZqCoIMe5pgk1YUAnpQDKTiZ2NA==
+"@nlux/core@2.5.7":
+  version "2.5.7"
+  resolved "https://registry.yarnpkg.com/@nlux/core/-/core-2.5.7.tgz#45407c1735cc7dcfe5328963edc87c49ca6cd7c5"
+  integrity sha512-+sXhLoxjLkbd64jLuUkz8l3jFD6LPBVj/23K+okooXtY9ymencgChBlffgtx/Iqc0eq7Kz0VoNjTgufUksGZGQ==
 
 "@nlux/react@^2":
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/@nlux/react/-/react-2.5.5.tgz#4add9e4ac21135824a5c51c14248485223eb8d49"
-  integrity sha512-c4fXAAdUTPTdBj1MgW1UMQ8kg6/LHdwKNtuZVeqlZmoa2NjU1ciCgbmSrmlqyfpTILMkODXRU7cQI0ui5FbwDA==
+  version "2.5.7"
+  resolved "https://registry.yarnpkg.com/@nlux/react/-/react-2.5.7.tgz#7fe207b42591577a1bdb4ce97277a5bccdebfa06"
+  integrity sha512-pPbrjp/89+qegHGap8Z1QeVLMDzr+NGzSCcpyhZ36RoHwwWFjzv11Rp2IL6SpEFjxoiBJ5m0BNRNIYww6rVbjA==
   dependencies:
-    "@nlux/core" "2.5.5"
+    "@nlux/core" "2.5.7"
 
 "@nlux/themes@^2":
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/@nlux/themes/-/themes-2.5.5.tgz#a7c842422582a76739ba65c7a9288a02db0f358e"
-  integrity sha512-ThxNWBJVQ+7x/B5FN0VEIpGl7CwuxxQ7/diJNaQo9it4ahxiQ8KFyaNF+Vd6Og0rnGIxCo9yAI6aItfbHXy+WQ==
+  version "2.5.7"
+  resolved "https://registry.yarnpkg.com/@nlux/themes/-/themes-2.5.7.tgz#5a0dc45c205f6770b32dc2465cd841dbc60af21a"
+  integrity sha512-thmKnlFIEhxWrnv7OmaQ1ChRrtIK1XBHlKkOC4Uei9GBzB+TmuRxTnqnD7M9K3EOrz6dm2V9qzh7wqpUBIQZDw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
