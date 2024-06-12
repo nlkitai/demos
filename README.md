@@ -1,9 +1,16 @@
 #  `NLUX` demos
 
-This repository contains a collection of demos for the `NLUX` library. 
+This repository contains a collection of demos for the `NLUX` JavaScript conversational AI library. 
 The demos are organized in the following way:
 
+### Next.js Demos
+
+- `next-js/nlux-with-app-router`: A simple `NLUX` demo using Next.js with a Next.js API route.
+
+### Context-Aware Conversations Demos
+
 - `stock-wiz`: The simple stock display app that uses `NLUX` as AI assistant to make stock investment decisions.
+- `amaizon`: A simple e-commerce app that uses `NLUX` as AI assistant to help users find products.
 
 ## Running the demos
 
@@ -17,9 +24,9 @@ simple to integrate powerful large language models (LLMs) like ChatGPT into your
 lines of code, you can add conversational AI capabilities and interact with your favourite LLM.
 
 * For developer documentation, examples, and API reference ― please visit:  
-  [nlux.dev](https://nlux.dev/)
+  [docs.nlkit.com/nlux](https://docs.nlkit.com/nlux)
 
 
 * The main GitHub repository for `NLUX` is located at:  
-  [github.com/nluxai/nlux](https://github.com/nluxai/nlux)
+  [github.com/nlkitai/nlux](https://github.com/nlkitai/nlux)
 
