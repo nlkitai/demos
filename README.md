@@ -7,7 +7,7 @@ The demos are organized in the following way:
 
 <img src="https://docs.nlkit.com/nlux/images/logos/platforms/nextjs-logo-dark-with-background-120pxh.png" height="70" style="border-radius: 5px;">
 
-- `next-js/nlux-with-app-router`: A simple `NLUX` demo using Next.js with a Next.js API route.
+- `next-js/nlux-with-app-router`: A simple `NLUX` demo with a Next.js 14 API route.
 
 ### Context-Aware Conversations Demos
 
