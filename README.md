@@ -3,13 +3,20 @@
 This repository contains a collection of demos for the `NLUX` JavaScript conversational AI library. 
 The demos are organized in the following way:
 
-### Next.js Demos
+## Next.js Demos
 
 <img src="https://docs.nlkit.com/nlux/images/logos/platforms/nextjs-logo-dark-with-background-120pxh.png" height="70" style="border-radius: 5px;">
 
 - `next-js/nlux-with-app-router`: A simple `NLUX` demo with a Next.js 14 API route.
 
-### Context-Aware Conversations Demos
+## React and Nodes.js Demos
+
+### AI Assistant For Calendars Booking
+
+- `ai-calendar-booking`: A simple calendar AI assistant using `@nlux/react`, `@nlbridge/express` Express.js
+  middleware, and OpenAI's GPT-4o.
+
+### Context-Aware Conversations
 
 - `stock-wiz`: The simple stock display app that uses `NLUX` as AI assistant to make stock investment decisions.
 - `amaizon`: A simple e-commerce app that uses `NLUX` as AI assistant to help users find products.
