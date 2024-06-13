@@ -2,21 +2,26 @@
 import {AiChat, ChatAdapter} from '@nlux/react';
 import '@nlux/themes/nova.css';
 import Image from 'next/image';
-import {aiReply} from '@/app/aiReply/route';
 
 export default function HomePage() {
-    const adapter: ChatAdapter = {
-        // NLUX supports streaming and batch modes for chat adapters
-        // This example uses batch mode
-        batchText: async (message: string) => aiReply(message),
-    };
+    const chatAdapter = { batchText: async (prompt: string) => {
+        const r = {
+            method: 'POST',
+            body: JSON.stringify({prompt: prompt}),
+            headers: {'Content-Type': 'application/json'},
+        };
+
+        const response = await fetch('/api/chat', r);
+        const {reply} = await response.json();
+        return reply;
+    }};
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <PageHeader/>
             <div className="aiChat-container">
                 <AiChat
-                    adapter={adapter}
+                    adapter={chatAdapter}
                     personaOptions={{
                         assistant: {
                             name: 'HarryBotter',
