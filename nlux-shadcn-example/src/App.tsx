@@ -14,24 +14,18 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar";
 import { AiChat, ChatItem } from "@nlux/react";
-import { Menu, Rabbit } from "lucide-react";
+import { Check, Menu, Rabbit } from "lucide-react";
 import { useState } from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./components/ui/select";
-
 export function App() {
   const [conversationIndex, setConversationIndex] = useState(0);
+  const [selectedModelIndex, setSelectedModelIndex] = useState(0);
   const models: { modelName: string; icon: string }[] = [
-    { modelName: "gpt-4o", icon: "./openai-logo.png" },
+    { modelName: "gpt-4o", icon: "./openai-logo.png" },  { modelName: "gpt-4o", icon: "./openai-logo.png" },
+{ modelName: "gpt-4o", icon: "./openai-logo.png" },
+
   ];
   const conversation = [
     {
@@ -61,8 +55,8 @@ export function App() {
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
             <a href="/" className="flex items-center gap-2 font-semibold">
-              <Avatar>
-                <AvatarImage className="rounded-none" src={"./nlux.png"} />
+              <Avatar className="rounded-none">
+                <AvatarImage src={"./nlux.png"} />
                 <AvatarFallback>Nlux</AvatarFallback>
               </Avatar>
               <span className="">Nlux</span>
@@ -166,22 +160,22 @@ export function App() {
                     <Button variant="outline">Model</Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="start">
-                    <DropdownMenuItem>
-                      <div className="flex items-start gap-3 text-muted-foreground">
-                        <Rabbit className="size-5" />
-                        <div className="grid gap-0.5">
-                          <p>
-                            Neural{" "}
-                            <span className="font-medium text-foreground">
-                              Genesis
+                    {models.map((val,index) => (
+                      <DropdownMenuItem onClick={()=>setSelectedModelIndex(index)}>
+                        <div className="flex items-center gap-3 text-muted-foreground cursor-pointer">
+                          <img src={val.icon} className="w-6 h-6" />
+                          <div className="grid gap-0.5">
+                            <span className="flex gap-1 items-center">
+                             <p className=" font-medium text-foreground"> {val.modelName}</p>
+                             {index === selectedModelIndex&& <Check />}
                             </span>
-                          </p>
-                          <p className="text-xs" data-description>
-                            Our fastest model for general use cases.
-                          </p>
+                            <p className="text-xs" data-description>
+                              OpenAI fastest model for general use cases.
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </DropdownMenuItem>
+                      </DropdownMenuItem>
+                    ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
