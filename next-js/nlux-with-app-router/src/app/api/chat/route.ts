@@ -1,4 +1,8 @@
-export async function aiReply(prompt: string): Promise<string> {
+import {NextResponse} from 'next/server';
+
+export async function POST(req: Request) {
+    const { prompt } = await req.json();
+
     const response = await fetch('https://demo.api.nlux.ai/openai/chat/fetch', {
         method: 'POST',
         headers: {
@@ -15,5 +19,5 @@ export async function aiReply(prompt: string): Promise<string> {
         throw new Error('Failed to fetch text');
     }
 
-    return data.content;
+    return NextResponse.json({ reply: data.content });
 }
