@@ -11,9 +11,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { AiChat } from "@nlux/react";
 import { Check, Menu, Moon, Sun } from "lucide-react";
 import { useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar";
-import { conversations } from "./data/history";
-import { models } from "./data/model";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { conversations } from "@/data/history";
+import { models } from "@/data/model";
+import { personas } from "@/data/persona";
 export function App() {
   const { setTheme, theme } = useTheme();
   const [conversationIndex, setConversationIndex] = useState(0);
@@ -35,6 +36,7 @@ export function App() {
             <nav className="grid items-start px-2 text-sm font-medium gap-1 lg:px-4">
               {conversations.map((val, index) => (
                 <a
+                  key={`conversation-${val.title}`}
                   className={`${
                     index === conversationIndex
                       ? "!bg-secondary"
@@ -75,7 +77,7 @@ export function App() {
               <nav className="grid gap-2 text-lg font-medium pt-2">
                 {conversations.map((val) => (
                   <a
-                    href="#"
+                    key={`conversation-${val.title}`}
                     className={` flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary cursor-pointer hover:bg-secondary `}
                   >
                     <Avatar className="rounded-none">
@@ -106,6 +108,7 @@ export function App() {
                   <DropdownMenuContent align="start">
                     {models.map((val, index) => (
                       <DropdownMenuItem
+                        key={`models-${val.modelName}`}
                         className="z-[999989]"
                         onClick={() => setSelectedModelIndex(index)}
                       >
@@ -122,7 +125,7 @@ export function App() {
                               {index === selectedModelIndex && <Check />}
                             </span>
                             <p className="text-xs" data-description>
-                              {val.description}{" "}
+                              {val.description}
                             </p>
                           </div>
                         </div>
@@ -145,13 +148,7 @@ export function App() {
               <DropdownMenuItem onClick={() => setTheme("light")}>
                 Light
               </DropdownMenuItem>
-              <DropdownMenuItem
-                onClick={() => {
-                  console.log("wiow");
-
-                  setTheme("dark");
-                }}
-              >
+              <DropdownMenuItem onClick={() => setTheme("dark")}>
                 Dark
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme("auto")}>
@@ -173,18 +170,7 @@ export function App() {
               themeId: "nova",
               colorScheme: theme,
             }}
-            personaOptions={{
-              assistant: {
-                name: "HarryBotter",
-                avatar:
-                  "https://docs.nlkit.com/nlux/images/personas/harry-botter.png",
-                tagline: "Mischievously Making Magic With Mirthful AI!",
-              },
-              user: {
-                name: "Alex",
-                avatar: "https://docs.nlkit.com/nlux/images/personas/alex.png",
-              },
-            }}
+            personaOptions={personas}
           />
         </main>
       </div>
