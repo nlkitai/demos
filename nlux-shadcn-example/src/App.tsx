@@ -22,16 +22,19 @@ export function App() {
     modelName: string;
     icon: string;
     adapter: StandardChatAdapter;
+    description: string;
   }[] = [
     {
-      modelName: "gpt-4o",
-      icon: "./openai-logo.svg",
-      adapter: openAiAdapter(),
-    },
-    {
-      modelName: "langchain",
+      modelName: "LangChain LangServe",
       icon: "./langchain-logo.png",
       adapter: langChainAdapter(),
+      description: "Versatile framework for advanced language tasks.",
+    },
+    {
+      modelName: "GPT-4o",
+      icon: "./openai-logo.svg",
+      adapter: openAiAdapter(),
+      description: "OpenAI fastest model for general use cases.",
     },
   ];
   const conversation: { avatar: string; title: string; chat?: ChatItem[] }[] = [
@@ -165,7 +168,9 @@ export function App() {
               <div className="relative flex">
                 <DropdownMenu>
                   <DropdownMenuTrigger id="model" className="items-start ">
-                    <Button variant="outline">{models[selectedModelIndex].modelName}</Button>
+                    <Button variant="outline">
+                      {models[selectedModelIndex].modelName}
+                    </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="start">
                     {models.map((val, index) => (
@@ -186,7 +191,7 @@ export function App() {
                               {index === selectedModelIndex && <Check />}
                             </span>
                             <p className="text-xs" data-description>
-                              OpenAI fastest model for general use cases.
+                              {val.description}{" "}
                             </p>
                           </div>
                         </div>
