@@ -165,7 +165,7 @@ export function App() {
               <div className="relative flex">
                 <DropdownMenu>
                   <DropdownMenuTrigger id="model" className="items-start ">
-                    <Button variant="outline">Model</Button>
+                    <Button variant="outline">{models[selectedModelIndex].modelName}</Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="start">
                     {models.map((val, index) => (
