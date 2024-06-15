@@ -95,7 +95,7 @@ export function App() {
                 <AvatarImage src={"./nlux.png"} />
                 <AvatarFallback>Nlux</AvatarFallback>
               </Avatar>
-              <span className="">Nlux</span>
+              <span className="">Your Ai Assistant</span>
             </a>
           </div>
           <div className="flex-1">
