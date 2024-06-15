@@ -99,7 +99,7 @@ export function App() {
             </a>
           </div>
           <div className="flex-1">
-            <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+            <nav className="grid items-start px-2 text-sm font-medium gap-1 lg:px-4">
               {conversation.map((val, index) => (
                 <a
                   className={`${
@@ -139,11 +139,11 @@ export function App() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="flex flex-col">
-              <nav className="grid gap-2 text-lg font-medium">
+              <nav className="grid gap-2 text-lg font-medium pt-2">
                 {conversation.map((val) => (
                   <a
                     href="#"
-                    className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                    className={` flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary cursor-pointer hover:bg-secondary `}
                   >
                     <Avatar className="rounded-none">
                       <AvatarImage src={val.avatar} />
