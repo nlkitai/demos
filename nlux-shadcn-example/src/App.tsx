@@ -37,11 +37,11 @@ export function App() {
   const conversation: { avatar: string; title: string; chat?: ChatItem[] }[] = [
     {
       avatar: "https://github.com/shadcn.png",
-      title: "Conversation 4",
+      title: "New Conversation",
     },
     {
       avatar: "https://github.com/shadcn.png",
-      title: "Conversation 1",
+      title: "Capital of Antartica",
       chat: [
         {
           role: "user",
@@ -56,7 +56,7 @@ export function App() {
     },
     {
       avatar: "https://github.com/shadcn.png",
-      title: "Conversation 2",
+      title: "Fastest land animal",
       chat: [
         {
           role: "user",
@@ -71,7 +71,7 @@ export function App() {
     },
     {
       avatar: "https://github.com/shadcn.png",
-      title: "Conversation 3",
+      title: "Plants",
       chat: [
         {
           role: "user",
