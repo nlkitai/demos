@@ -1,4 +1,4 @@
-import { langChainAdapter } from "@/adapter/langchain";
+import "@nlux/themes/nova.css";
 import { useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,86 +8,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { AiChat, ChatItem, StandardChatAdapter } from "@nlux/react";
+import { AiChat } from "@nlux/react";
 import { Check, Menu, Moon, Sun } from "lucide-react";
 import { useState } from "react";
-import { openAiAdapter } from "./adapter/openai";
 import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar";
+import { conversations } from "./data/history";
+import { models } from "./data/model";
 export function App() {
   const { setTheme, theme } = useTheme();
-
   const [conversationIndex, setConversationIndex] = useState(0);
   const [selectedModelIndex, setSelectedModelIndex] = useState(0);
-  const models: {
-    modelName: string;
-    icon: string;
-    adapter: StandardChatAdapter;
-    description: string;
-  }[] = [
-    {
-      modelName: "LangChain LangServe",
-      icon: "./langchain-logo.png",
-      adapter: langChainAdapter(),
-      description: "Versatile framework for advanced language tasks.",
-    },
-    {
-      modelName: "GPT-4o",
-      icon: "./openai-logo.svg",
-      adapter: openAiAdapter(),
-      description: "OpenAI fastest model for general use cases.",
-    },
-  ];
-  const conversation: { avatar: string; title: string; chat?: ChatItem[] }[] = [
-    {
-      avatar: "https://github.com/shadcn.png",
-      title: "New Conversation",
-    },
-    {
-      avatar: "https://github.com/shadcn.png",
-      title: "Capital of Antartica",
-      chat: [
-        {
-          role: "user",
-          message: "What's the capital of Antartica?",
-        },
-        {
-          role: "assistant",
-          message:
-            'Arrr, matey! The **capital** of _Antarctica_ be none other than `"Arrrctica"`, where ye can find a jolly crew of penguins swashbuckling on icy seas!',
-        },
-      ],
-    },
-    {
-      avatar: "https://github.com/shadcn.png",
-      title: "Fastest land animal",
-      chat: [
-        {
-          role: "user",
-          message: "What's the fastest land animal?",
-        },
-        {
-          role: "assistant",
-          message:
-            "Yarrr! The **fastest** land animal be the mighty `cheetah`! It zooms across the savannah like a cannonball from a pirate ship!",
-        },
-      ],
-    },
-    {
-      avatar: "https://github.com/shadcn.png",
-      title: "Plants",
-      chat: [
-        {
-          role: "user",
-          message: "How do plants make food?",
-        },
-        {
-          role: "assistant",
-          message:
-            "Ahoy! Plants be clever sailors, harnessin' the power of the sun through a process called `photosynthesis`! They be usin' sunlight, water, and carbon dioxide to cook up a feast o' sugar and oxygen!",
-        },
-      ],
-    },
-  ];
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-muted/40 md:block">
@@ -103,7 +33,7 @@ export function App() {
           </div>
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium gap-1 lg:px-4">
-              {conversation.map((val, index) => (
+              {conversations.map((val, index) => (
                 <a
                   className={`${
                     index === conversationIndex
@@ -143,7 +73,7 @@ export function App() {
             </SheetTrigger>
             <SheetContent side="left" className="flex flex-col">
               <nav className="grid gap-2 text-lg font-medium pt-2">
-                {conversation.map((val) => (
+                {conversations.map((val) => (
                   <a
                     href="#"
                     className={` flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary cursor-pointer hover:bg-secondary `}
@@ -167,10 +97,11 @@ export function App() {
             <form>
               <div className="relative flex">
                 <DropdownMenu>
-                  <DropdownMenuTrigger id="model" className="items-start ">
-                    <Button variant="outline">
-                      {models[selectedModelIndex].modelName}
-                    </Button>
+                  <DropdownMenuTrigger
+                    id="model"
+                    className="border items-start p-2 rounded-sm"
+                  >
+                    {models[selectedModelIndex].modelName}
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="start">
                     {models.map((val, index) => (
@@ -231,11 +162,11 @@ export function App() {
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <AiChat
-            adapter={models[selectedModelIndex].adapter}
+            adapter={models[selectedModelIndex].adapter()}
             composerOptions={{
               placeholder: "How can I help you today?",
             }}
-            initialConversation={conversation[conversationIndex].chat}
+            initialConversation={conversations[conversationIndex].chat}
             displayOptions={{
               width: "100%",
               height: "100%",
