@@ -1,4 +1,4 @@
-import {personas} from '@/data/personas.ts';
+import {personas} from './personas.ts';
 import { ChatItem, PersonaOptions } from "@nlux/react";
 
 export const conversations: {

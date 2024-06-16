@@ -1,18 +1,18 @@
 import { useState } from "react";
-import { useTheme } from "@/components/theme-provider";
-import { Button } from "@/components/ui/button";
+import { useTheme } from "./components/theme-provider";
+import { Button } from "./components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+} from "./components/ui/dropdown-menu";
+import { Sheet, SheetContent, SheetTrigger } from "./components/ui/sheet";
+import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar";
 import { Check, Menu, Moon, Sun } from "lucide-react";
 
-import { conversations } from "@/data/history";
-import { models } from "@/data/models";
+import { conversations } from "./data/history";
+import { models } from "./data/models";
 
 import { AiChat } from "@nlux/react";
 import "@nlux/themes/nova.css";
@@ -28,7 +28,7 @@ export function App() {
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <a href="/" className="flex items-center gap-2 font-semibold">
+            <a href="/Users/salmen/Projects/nx/demos/ui-components/chatgpt-ui/public" className="flex items-center gap-2 font-semibold">
               <Avatar className="rounded-none w-6 h-6">
                 <AvatarImage src={"./nlux.png"} />
                 <AvatarFallback>Nlux</AvatarFallback>

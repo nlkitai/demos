@@ -1,5 +1,5 @@
-import { langChainAdapter } from "@/adapter/langchain";
-import { openAiAdapter } from "@/adapter/openai";
+import { langChainAdapter } from "../adapter/langchain";
+import { openAiAdapter } from "../adapter/openai";
 import {ChatAdapter, StandardChatAdapter} from '@nlux/react';
 
 export const models: {
