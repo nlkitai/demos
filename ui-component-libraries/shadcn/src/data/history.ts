@@ -2,15 +2,18 @@ import {personas} from '@/data/personas.ts';
 import { ChatItem, PersonaOptions } from "@nlux/react";
 
 export const conversations: {
+  id: string;
   title: string;
   personas: PersonaOptions,
   chat?: ChatItem[];
 }[] = [
   {
+    id: "cnv-1",
     title: "Latest",
     personas: personas[1],
   },
   {
+    id: "cnv-2",
     title: "Cooking Recipes",
     personas: personas[2],
     chat: [
@@ -45,6 +48,7 @@ export const conversations: {
     ],
   },
   {
+    id: "cnv-3",
     title: "Fastest land animals",
     personas: personas[0],
     chat: [
@@ -60,6 +64,7 @@ export const conversations: {
     ],
   },
   {
+    id: "cnv-4",
     title: "Plants",
     personas: personas[1],
     chat: [

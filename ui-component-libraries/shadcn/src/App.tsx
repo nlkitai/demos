@@ -16,6 +16,7 @@ import { models } from "@/data/models";
 
 import { AiChat } from "@nlux/react";
 import "@nlux/themes/nova.css";
+import "./App.css";
 
 export function App() {
   const { setTheme, theme } = useTheme();
@@ -141,6 +142,7 @@ export function App() {
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <AiChat
+            className="nlux-AiChat-style"
             adapter={ models[selectedModelIndex].adapter() }
             composerOptions={{ placeholder: "How can I help you today?" }}
             initialConversation={ conversations[conversationIndex].chat }

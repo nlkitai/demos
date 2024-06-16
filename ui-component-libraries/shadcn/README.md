@@ -1,7 +1,8 @@
-# NLUX + Shadcn
+# NLUX + Shadcn + Tailwind CSS
 
-A React JS project that showcases how to use [`NLUX`](https://docs.nlkit.com/nlux) and
-[`shadcn/ui`](https://ui.shadcn.com/) to build a ChatGPT-like chat interface.
+A React JS project that showcases how to use [`NLUX`](https://docs.nlkit.com/nlux), 
+[`shadcn/ui`](https://ui.shadcn.com/), [Tailwind CSS](https://tailwindcss.com/) to 
+build a ChatGPT-like chat interface.
 
 `NLUX` handles the chat logic and `shadcn/ui` provides the UI components for thread switching, model selection, 
 and more.
