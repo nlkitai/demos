@@ -13,7 +13,6 @@ import { Check, Menu, Moon, Sun } from "lucide-react";
 
 import { conversations } from "@/data/history";
 import { models } from "@/data/models";
-import { personas } from "@/data/personas";
 
 import { AiChat } from "@nlux/react";
 import "@nlux/themes/nova.css";
