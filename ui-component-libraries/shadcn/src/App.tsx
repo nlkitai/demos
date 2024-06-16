@@ -1,4 +1,4 @@
-import "@nlux/themes/nova.css";
+import { useState } from "react";
 import { useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,28 +8,32 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { AiChat } from "@nlux/react";
-import { Check, Menu, Moon, Sun } from "lucide-react";
-import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Check, Menu, Moon, Sun } from "lucide-react";
+
 import { conversations } from "@/data/history";
-import { models } from "@/data/model";
-import { personas } from "@/data/persona";
+import { models } from "@/data/models";
+import { personas } from "@/data/personas";
+
+import { AiChat } from "@nlux/react";
+import "@nlux/themes/nova.css";
+
 export function App() {
   const { setTheme, theme } = useTheme();
   const [conversationIndex, setConversationIndex] = useState(0);
   const [selectedModelIndex, setSelectedModelIndex] = useState(0);
+
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
             <a href="/" className="flex items-center gap-2 font-semibold">
-              <Avatar className="rounded-none">
+              <Avatar className="rounded-none w-6 h-6">
                 <AvatarImage src={"./nlux.png"} />
                 <AvatarFallback>Nlux</AvatarFallback>
               </Avatar>
-              <span className="">Your AI Assistant</span>
+              <span>Your AI Assistant</span>
             </a>
           </div>
           <div className="flex-1">
@@ -45,7 +49,6 @@ export function App() {
                   onClick={() => setConversationIndex(index)}
                 >
                   <Avatar className="rounded-xl">
-                    <AvatarImage src={val.avatar} />
                     <AvatarFallback>
                       {val.title
                         .split(" ")
@@ -64,11 +67,7 @@ export function App() {
         <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
           <Sheet>
             <SheetTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                className="shrink-0 md:hidden"
-              >
+              <Button variant="outline" size="icon" className="shrink-0 md:hidden">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
@@ -81,7 +80,6 @@ export function App() {
                     className={` flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary cursor-pointer hover:bg-secondary `}
                   >
                     <Avatar className="rounded-none">
-                      <AvatarImage src={val.avatar} />
                       <AvatarFallback>
                         {val.title
                           .split(" ")
@@ -99,34 +97,25 @@ export function App() {
             <form>
               <div className="relative flex">
                 <DropdownMenu>
-                  <DropdownMenuTrigger
-                    id="model"
-                    className="border items-start p-2 rounded-sm"
-                  >
+                  <DropdownMenuTrigger id="model" className="flex gap-3 border items-start p-2 rounded-sm">
+                    <img src={models[selectedModelIndex].icon} className="w-6 h-6 object-scale-down"/>
                     {models[selectedModelIndex].modelName}
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="start">
-                    {models.map((val, index) => (
+                  {models.map((val, index) => (
                       <DropdownMenuItem
                         key={`models-${val.modelName}`}
                         className="z-[999989]"
                         onClick={() => setSelectedModelIndex(index)}
                       >
                         <div className="flex items-center gap-3 text-muted-foreground cursor-pointer z-auto">
-                          <img
-                            src={val.icon}
-                            className="w-6 h-6 object-scale-down"
-                          />
+                          <img src={val.icon} className="w-6 h-6 object-scale-down" />
                           <div className="grid gap-0.5">
                             <span className="flex gap-1 items-center">
-                              <p className=" font-medium text-foreground">
-                                {val.modelName}
-                              </p>
+                              <p className=" font-medium text-foreground">{val.modelName}</p>
                               {index === selectedModelIndex && <Check />}
                             </span>
-                            <p className="text-xs" data-description>
-                              {val.description}
-                            </p>
+                            <p className="text-xs">{val.description}</p>
                           </div>
                         </div>
                       </DropdownMenuItem>
@@ -145,32 +134,19 @@ export function App() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setTheme("light")}>
-                Light
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("dark")}>
-                Dark
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("auto")}>
-                System
-              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("auto")}>System</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>{" "}
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <AiChat
-            adapter={models[selectedModelIndex].adapter()}
-            composerOptions={{
-              placeholder: "How can I help you today?",
-            }}
-            initialConversation={conversations[conversationIndex].chat}
-            displayOptions={{
-              width: "100%",
-              height: "100%",
-              themeId: "nova",
-              colorScheme: theme,
-            }}
-            personaOptions={personas}
+            adapter={ models[selectedModelIndex].adapter() }
+            composerOptions={{ placeholder: "How can I help you today?" }}
+            initialConversation={ conversations[conversationIndex].chat }
+            displayOptions={{ colorScheme: theme }}
+            personaOptions={ conversations[conversationIndex].personas }
           />
         </main>
       </div>
