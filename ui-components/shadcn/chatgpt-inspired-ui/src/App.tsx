@@ -9,7 +9,7 @@ import {
 } from "./components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "./components/ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar";
-import { Check, Menu, Moon, Sun } from "lucide-react";
+import { Check, Menu, Moon, Sun, Monitor } from "lucide-react";
 
 import { conversations } from "./data/history";
 import { models } from "./data/models";
@@ -134,20 +134,29 @@ export function App() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("auto")}>System</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("light")}>
+                <Sun className="h-[1.2rem] w-[1.2rem] mr-2" />
+                Light
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>
+                <Moon className="h-[1.2rem] w-[1.2rem] mr-2" />
+                Dark
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("auto")}>
+                <Monitor className="h-[1.2rem] w-[1.2rem] mr-2" />
+                System
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>{" "}
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <AiChat
             className="nlux-AiChat-style"
-            adapter={ models[selectedModelIndex].adapter() }
+            adapter={models[selectedModelIndex].adapter()}
             composerOptions={{ placeholder: "How can I help you today?" }}
-            initialConversation={ conversations[conversationIndex].chat }
+            initialConversation={conversations[conversationIndex].chat}
             displayOptions={{ colorScheme: theme }}
-            personaOptions={ conversations[conversationIndex].personas }
+            personaOptions={conversations[conversationIndex].personas}
           />
         </main>
       </div>
