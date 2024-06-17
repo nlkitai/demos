@@ -17,6 +17,7 @@ import { models } from "./data/models";
 import { AiChat } from "@nlux/react";
 import "@nlux/themes/nova.css";
 import "./App.css";
+import { conversationStarters } from "./data/conversation-starters";
 
 export function App() {
   const { setTheme, theme } = useTheme();
@@ -147,7 +148,7 @@ export function App() {
                 System
               </DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>{" "}
+          </DropdownMenu>
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <AiChat
@@ -157,6 +158,7 @@ export function App() {
             initialConversation={conversations[conversationIndex].chat}
             displayOptions={{ colorScheme: theme }}
             personaOptions={conversations[conversationIndex].personas}
+            conversationOptions={{ conversationStarters }}
           />
         </main>
       </div>
