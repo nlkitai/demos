@@ -16,7 +16,7 @@ export const ChatTrigger = ({
   <Button
     size={mode === "popover" ? "icon" : "lg"}
     className={`${
-      pos === "bottom" ? "absolute w-14 h-14 right-4 bottom-5" : "mx-auto"
+      pos === "bottom" ? "w-14 h-14" : "mx-auto"
     } rounded-full z-40`}
     onClick={() => setIsChatOpen(!isChatOpen)}
   >
