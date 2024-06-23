@@ -22,8 +22,8 @@ import {
   PopoverAnchor,
   PopoverContent,
 } from "./components/ui/popover";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Sheet, SheetContent, SheetTrigger } from "./components/ui/sheet";
 
 export function App() {
   const { setTheme, theme } = useTheme();
@@ -188,21 +188,19 @@ export function App() {
             </div>
           )}
           {mode === "drawer" && (
-            <Drawer onClose={() => setIsChatOpen(false)}>
-              <DrawerTrigger>
+            <Sheet onOpenChange={(open) => !open && setIsChatOpen(false)}>
+              <SheetTrigger>
                 <ChatTrigger
                   pos="center"
                   mode="drawer"
                   isChatOpen={isChatOpen}
                   setIsChatOpen={setIsChatOpen}
                 />
-              </DrawerTrigger>
-              <DrawerContent>
-                <div className="mx-auto w-full max-w-screen-md h-[80vh]">
-                  {chatComponent}
-                </div>
-              </DrawerContent>
-            </Drawer>
+              </SheetTrigger>
+              <SheetContent>
+                <div className="pt-4 w-full h-full">{chatComponent}</div>
+              </SheetContent>
+            </Sheet>
           )}
           {mode === "dialog" && (
             <Dialog
