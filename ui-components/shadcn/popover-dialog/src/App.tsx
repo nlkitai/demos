@@ -197,7 +197,7 @@ export function App() {
                   setIsChatOpen={setIsChatOpen}
                 />
               </SheetTrigger>
-              <SheetContent>
+              <SheetContent className="min-w-96">
                 <div className="pt-4 w-full h-full">{chatComponent}</div>
               </SheetContent>
             </Sheet>
